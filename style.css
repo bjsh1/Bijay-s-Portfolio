@@ -1,0 +1,124 @@
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1487088678257-3a541e6e3922?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80);
+    background-attachment: fixed;
+}
+
+.icons{
+    height: 40px;
+    width: 40px;
+}
+
+.profile{
+    /*background: white;*/
+    background-image: linear-gradient(to left ,#7F7FD5, #86A8E7,#91EAE4);
+    background-attachment: scroll;
+    color: black;
+    text-align: center;
+    display: block;
+}
+
+.profile h1{
+    font-size: 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 0;
+}
+.profile p{
+    font-size: 1rem;
+    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0 5rem 0 5rem;
+}
+
+
+
+.img{
+    margin-top: -30px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: drop-shadow(10px 10px 4px #76b852);
+    
+}
+#followersinformation{
+    font-family: cursive;
+}
+
+.container{
+    width: 90%;
+    padding: 20px;
+    margin: 100px auto;
+    /*background: #ddd;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+   
+}
+
+
+.card-content{
+    
+    padding: 2px 16px;
+    
+    
+
+}
+
+.column{
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+border-bottom-left-radius: 5px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.twitter{
+    display: block;
+    
+    padding-right: 100px;
+}
+
+
+.holdingcontainer{
+    width: 100%;
+    display: flex;
+    
+    padding:50px;
+    box-sizing: border-box;
+    flex-direction: row;
+}
+
+.internalcontainerL{
+    flex: 1;
+    background: lightgray;
+    padding: 30px;
+}
+
+.internalcontainerR{
+    flex: 1;
+    /*background: cyan;*/
+    padding: 30px;
+}
+
+.twitter-timeline{
+    display: block;
+}
+
+.footer{
+    display: block;
+    background-color: lavender;
+    text-align: center;
+    background-attachment: scroll;
+}
+
+@media screen and (max-width:760px){
+    .holdingcontainer{
+        flex-direction: column;
+    }
+}

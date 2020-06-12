@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bijay's Portfolio</title>
+</head>
+<body>
+    <div id="loading">
+        LOADING.....
+    </div>
+    <div class="profile" id="maincontainer" hidden>
+            <h1>Hi!</h1>
+            <img class="img" id="profile-img" alt="Bijay's Profile" src="https://avatars1.githubusercontent.com/u/41225068?s=460&u=eaf0e4c4478eb05486201f979429461a49438c32&v=4"/>
+            <h1 id="username"></h1>
+            <h3><q id="status"> </q></h3>
+            <h4 id="followersinformation"></h4>
+            <h4>You can find me here:</h4>
+          <a id="github"><img class="icons" src="https://img.icons8.com/ios-filled/50/000000/github.png" /></a>
+          <a href="https://www.linkedin.com/"><img
+            class="icons" src="https://img.icons8.com/cute-clipart/50/000000/linkedin.png" /></a>
+          <a href="https://stackoverflow.com/users/10399445/bijay-shrestha"><img
+            class="icons" src="https://img.icons8.com/color/48/000000/stackoverflow.png" /></a>
+          <a id="twitterLink" href="https://twitter.com/srestabj"><img class="icons" src="https://img.icons8.com/fluent/48/000000/twitter.png" /></a>
+             
+    </div>
+    
+    
+    <div class="holdingcontainer">
+        <div class="internalcontainerR">
+            <a class="twitter-timeline"  data-height="550px" data-theme="light" href="https://twitter.com/srestabj?ref_src=twsrc%5Etfw">Tweets by srestabj</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        <div class="internalcontainerL"
+        <div class="card" id="myProject">
+          <div class="card-content">
+            <h2>My Projects</h2>
+            <div id="projectList">
+            </div>
+            <h4>Thats all for now...</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  
+    <div class="container">
+        <h1>My Projects</h1>
+        <div class="box">
+        <p> This is my first repo </p>
+      </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    -->
+
+    <script>
+        fetch("https://api.github.com/users/bjsh1")
+        .then(response => response.json())
+        .then(function(data){
+            console.log(data)
+
+            let followerscount=data['followers']
+            let followersInfo=""
+            if(followerscount>0){
+              followersInfo="I have been followed by "+followerscount +" people on Github"
+            }
+            else{
+              followersInfo="I dont have any followers yet, but I am sure I will get one soon"
+            }
+            
+            
+
+            document.getElementById('profile-img').src=data['avatar_url']
+            document.getElementById('username').textContent="I'm "+data['name']
+            document.getElementById('status').textContent=data['bio']
+            document.getElementById('followersinformation').textContent=followersInfo
+            document.getElementById('github').href=data['html_url']
+            document.getElementById('loading').hidden=true
+            document.getElementById('maincontainer').hidden=false
+            document.getElementById('repositories').href=data['repos_url']
+            let twitterProfile = "https://twitter.com/"
+            document.getElementById('twitterLink').href= twitterProfile + data["twitter_username"]
+            
+
+        });
+
+        
+    fetch('https://api.github.com/users/bjsh1/repos')
+      .then(response => response.json())
+      .then(function (data) {
+        //console.log(data)
+        var repos = "";
+        var i;
+        for (i = 0; i < data.length; i += 1) {
+          //console.log(data[i]['name']);
+          repos += "<h4>" + "Project: " + data[i]['name'] + "</h4>" + "<p>" + data[i]['description'] + "</p>" + "<hr/>";
+        }
+        document.getElementById('projectList').innerHTML = repos
+      })
+    </script>
+    <div class="footer">
+<footer>&copy; Copyright 2020 </footer>
+</div>
+</body>
+</html>
